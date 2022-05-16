@@ -8,7 +8,7 @@ Settings can be organized in multiple modules or sets (i.e. WebServerConfig, Cac
 
 ## Installation
 ```
-npm install --save git://github.intel.com/proceff/config-builder
+npm install --save https://github.com/intel/config-builder.git
 ```
 
 ## Basic Usage
