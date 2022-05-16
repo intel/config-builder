@@ -1,14 +1,14 @@
 {
-  "name": "config-builder",
+  "name": "@intelcorp/config-builder",
   "version": "1.0.0",
-  "description": "App configuration helper",
+  "description": "Environment Configuration Builder",
   "main": "index.js",
   "scripts": {
     "test": "mocha test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/intel/config-builder"
+    "url": "git+https://github.com/intel/config-builder.git"
   },
   "author": "Oscar Arevalo <oscar.arevalo@intel.com>",
   "contributors": [
@@ -21,5 +21,19 @@
   },
   "devDependencies": {
     "chai": "^4.3.6"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/intel/config-builder/issues"
+  },
+  "homepage": "https://github.com/intel/config-builder#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "config",
+    "environments"
+  ]
 }

@@ -1,5 +1,5 @@
 # config-builder
-Application configuration helper
+Environment Configuration Builder
 
 ## Overview
 config-builder is a tool to help store and manage configuration options for application that can support multiple environments (i.e. production, development, test, etc).
@@ -8,7 +8,7 @@ Settings can be organized in multiple modules or sets (i.e. WebServerConfig, Cac
 
 ## Installation
 ```
-npm install --save https://github.com/intel/config-builder.git
+npm install --save @intelcorp/config-builder
 ```
 
 ## Basic Usage
