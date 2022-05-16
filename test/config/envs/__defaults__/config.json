@@ -1,0 +1,7 @@
+{
+	"settingA": "default_value_for_A",
+	"settingB": "default_value_for_B",
+	"settingC": "default_value_for_C",
+	"settingEnv": "$env:HOME",
+	"testingenv":"$env:TEST"
+}

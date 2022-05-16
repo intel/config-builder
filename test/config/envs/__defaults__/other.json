@@ -1,0 +1,8 @@
+{
+	"settingOtherA": "value for settingOtherA",
+	"settingOtherB": "value for settingOtherB",
+	"settingOtherEnv": "$env:HOME",
+	"nest": {
+		"settingOtherNestedEnv": "$env:HOME"
+	}
+}
