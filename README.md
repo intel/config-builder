@@ -1,4 +1,4 @@
-# Environment Configuration Builderr
+# Environment Configuration Builder
 
 
 ## Overview
@@ -78,11 +78,11 @@ Where `MY_PASS` is the name of an environment variable on your system.
 
 
 ## Using .env Files
-You can defined environment variables using a `.env` file placed on your config path. If this file is present, Config-Builder will read it an use it to create environment variables that can be used only for the current instance of your application. Additionally this can be used within your config files. 
+You can also define environment variables using a `.env` file placed on your config path. Whenever this file is present `Config-Builder` will read it an use it to create environment variables that can be used only for the current instance of your application and that can be used in your config files. 
 This is specially useful for local development environments where you may want to have more control over the environment variables your application sees.
-*** It is highly recommented to not commit your .env files to your source control repository, as they may contain sensitive values ***
+**It is highly recommented to not commit your `.env` files to your source control repository, as they may contain sensitive values**
 
-Env files should be structured as sinple key/value maps:
+Env files should be structured as sinple JSON key/value maps:
 ```
 {
    ...
