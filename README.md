@@ -14,7 +14,7 @@ npm install --save @intelcorp/config-builder
 ## Basic Usage
 On your application do:
 ```
-var ConfigBuilder = require('config-builder'),
+var ConfigBuilder = require('@intelcorp/config-builder'),
     cb = new ConfigBuilder({path: PATH_TO_YOUR_CONFIG_FOLDER}),
     config = cb.build(NAME_OF_ENVIRONMENT_TO_LOAD);
 ```
@@ -43,7 +43,7 @@ Where `config/index.js` contains:
 'use strict';
 
 var env = process.env.NODE_ENV || 'dev',
-    ConfigBuilder = require('config-builder'),
+    ConfigBuilder = require('@intelcorp/config-builder'),
     cb = new ConfigBuilder({path: __dirname}),
     config = cb.build(env);
 
