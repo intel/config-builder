@@ -1,8 +1,8 @@
-# config-builder
-Environment Configuration Builder
+# Environment Configuration Builderr
+
 
 ## Overview
-config-builder is a tool to help store and manage configuration options for application that can support multiple environments (i.e. production, development, test, etc).
+The Environment Configuration Builder (a.k.a. `config-builder`) is a tool to help store and manage configuration options for application that can support multiple environments (i.e. production, development, test, etc).
 Custom environment config works by providing overriding values for settings that only apply on the requested environment.
 Settings can be organized in multiple modules or sets (i.e. WebServerConfig, CacheConfig, etc)
 
