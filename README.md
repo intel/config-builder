@@ -6,6 +6,7 @@ The Environment Configuration Builder (a.k.a. `config-builder`) is a tool to hel
 Custom environment config works by providing overriding values for settings that only apply on the requested environment.
 Settings can be organized in multiple modules or sets (i.e. WebServerConfig, CacheConfig, etc)
 
+
 ## Installation
 ```
 npm install --save @intelcorp/config-builder
@@ -14,16 +15,18 @@ npm install --save @intelcorp/config-builder
 ## API Reference
 ### cn = new ConfigBuilder(opts)
 Creates a new instance of ConfigBuilder.
-`opts.configPath`: Required. Path to the directory where to find the configuration files for all environments.
-`opts.defaults`: Name of the folder containging the default values for all environments. Defaults to `__defaults__`
-`opts.freeze`: Indicates whether to freeze the returned config object or not. Defaults to true.
-`opts.cache`: Indicates whether to use a cache. Defaults to true.
+
+* `opts.configPath`: Required. Path to the directory where to find the configuration files for all environments.
+* `opts.defaults`: Name of the folder containging the default values for all environments. Defaults to `__defaults__`
+* `opts.freeze`: Indicates whether to freeze the returned config object or not. Defaults to true.
+* `opts.cache`: Indicates whether to use a cache. Defaults to true.
 
 ### cfg = cb.build(env)
 Returns a map (`cfg`) with configuration settings for the requested environment. The `env` environment must be defined as a subfolder of `opts.configPath`. 
 
 ### cfg.readEnvFile(filename)
 Reads a file (sync) from the config directory if exists and return its contents. Otherwise reads it from the default config folder.
+
 
 ## Basic Usage
 On your application do:
@@ -36,6 +39,7 @@ Where:
 `config` will be an object with all the settings for your requested environment.
 `config.readEnvFile(filename)` is a helper function to load text files that you want to store with the config.
 `config.ENV` is the name of the loaded environment
+
 
 ## Recommended Usage
 * Create the following directory structure in your app:
