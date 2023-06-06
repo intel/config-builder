@@ -95,4 +95,23 @@ describe('ConfigBuilder Test Suite', function () {
         var config = cb.build("E1");
         expect( function () { config.settingA = "x"; } ).to.throw("Cannot assign to read only property");
     });
+
+    it('should prevent changing a nested config object', function() {
+        var cb = new ConfigBuilder({ path: resolve(__dirname, 'config') });
+
+        var config = cb.build("E1");
+        expect( function () { config.otherConfig.nest.settingOtherNestedEnv = "x"; } ).to.throw("Cannot assign to read only property");
+    });
+
+    it('should allow changing a config object if not using freeze option', function() {
+        var cb = new ConfigBuilder({ 
+            path: resolve(__dirname, 'config'),
+            freeze: false,
+            cache: false
+        });
+
+        var config = cb.build("E1");
+        expect( function () { config.settingA = "x"; } ).to.not.throw("Cannot assign to read only property");
+    });
+
 });
