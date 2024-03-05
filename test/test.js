@@ -25,6 +25,17 @@ describe('ConfigBuilder Test Suite', function () {
         expect(config).to.have.property('settingC');
     });
 
+    it( 'should properly construct nested config fields', function () {
+        var cb = new ConfigBuilder({ path: resolve(__dirname, 'config') });
+        var config = cb.build("E_Nested");
+        expect(config).to.have.property('nested');
+        expect(config.nested).to.deep.equal([
+            { "foo": "bar" },
+            { "baz": [ "foo", "bar" ] },
+            [[1,2,3]]
+        ]);
+    });
+
     it('should override top-level config settings for each environment', function () {
         var cb = new ConfigBuilder({ path: resolve(__dirname, 'config') });
 
@@ -78,6 +89,12 @@ describe('ConfigBuilder Test Suite', function () {
         var config = cb.build("E1");
         expect(config.otherConfig.nest.settingOtherNestedEnv).to.equal(process.env.HOME);
     });
+
+    it('should do variable replacement in arrays', () => {
+        var cb = new ConfigBuilder({ path: resolve(__dirname, 'config') });
+        var config = cb.build("E_Nested");
+        expect(config.nestedAndInterpolated[0][0]).to.equal(process.env.HOME);
+    })
 
     it('should read a data file', function(){
         var cb = new ConfigBuilder({ path: resolve(__dirname, 'config') });
