@@ -23,6 +23,9 @@ node_modules/
 # Output of 'npm pack'
 *.tgz
 
+# common ide files
+.idea
+
 .npmrc
 package-lock.json
 
