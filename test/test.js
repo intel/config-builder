@@ -131,4 +131,34 @@ describe('ConfigBuilder Test Suite', function () {
         expect( function () { config.settingA = "x"; } ).to.not.throw("Cannot assign to read only property");
     });
 
+    it('should evaluate references to environement variables with default values (non-existing)', function() {
+        delete process.env.TEST_WITH_DEFAULT;
+        var cb = new ConfigBuilder({ path: resolve(__dirname, 'config') });
+        var config = cb.build("E1");
+        expect(config.testingEnvDefault).to.equal("123");
+    });
+
+    it('should evaluate references to environement variables with default values (existing)', function() {
+        var cb = new ConfigBuilder({ path: resolve(__dirname, 'config') });
+        var config = cb.build("E1");
+        expect(config.testingEnvDefaultWithValue).to.equal(process.env.HOME);
+    });
+
+    it('should evaluate a self referencing field', function() {
+        var cb = new ConfigBuilder({ path: resolve(__dirname, 'config') });
+        var config = cb.build("E1");
+        expect(config.otherConfig.selfReferenceB).to.equal(config.otherConfig.settingOtherA);
+    });
+
+    it('should evaluate a nested self referencing field', function() {
+        var cb = new ConfigBuilder({ path: resolve(__dirname, 'config') });
+        var config = cb.build("E_Nested");
+        expect(config.nestedSelfReference.n1).to.equal(config.nested[0].foo);
+    });
+
+    it('should throw an error when a self referencing field points to a non-existing field', function() {
+        var cb = new ConfigBuilder({ path: resolve(__dirname, 'config') });
+        expect(function() { cb.build("E_NonExistingRef"); }).to.throw();
+    });
+
 });

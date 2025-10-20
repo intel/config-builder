@@ -10,5 +10,8 @@
 	],
 	"nestedAndInterpolated": [
 		["$env:HOME"]
-	]
+	],
+	"nestedSelfReference": {
+		"n1": "$cfg:nested.0.foo"
+	}
 }

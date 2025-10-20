@@ -88,11 +88,21 @@ To use env variables on your config files, define the value of a setting using t
 ```
 {
 	...
-	"MY_PASS": "$env:MY_PASS",
+	"PASSWORD": "$env:MY_PASS",
 	...
 }
 ```
 Where `MY_PASS` is the name of an environment variable on your system.
+
+Alternatively, you can indicate a default value to use if the references environment value does not exist:
+```
+{
+	...
+	"PASSWORD": "$env:MY_PASS:DEFAULT_VALUE",
+	...
+}
+```
+If `MY_PASS` does not exist as an environment value, then `PASSWORD` will be equal to `"DEFAULT_VALUE"`
 
 
 ## Using .env Files
@@ -108,8 +118,55 @@ Env files should be structured as sinple JSON key/value maps:
 }
 ```
 
+## Using Self-referencing Fields
+Self-referencing fields allow you to reference other values within your configuration files. This is useful for avoiding duplication and keeping your configuration DRY (Don't Repeat Yourself).
 
+To reference another field in your config, use the format:
+```
+"$cfg:path.to.other.value"
+```
+Where `path.to.other.value` is the dotted path to the value you want to reference within the config object.
 
+If the referenced value does not exist, an error will be thrown during config building.
 
+### Example
 
+Suppose your `config.json` looks like this:
+```json
+{
+    "apiUrl": "https://api.example.com",
+    "serviceEndpoint": "$cfg:apiUrl"
+}
+```
+After building the config, `serviceEndpoint` will resolve to `https://api.example.com`
+
+You can also reference values in nested sections:
+```json
+{
+    "db": {
+        "host": "localhost",
+        "port": 3306
+    },
+    "mainDbHost": "$cfg:db.host"
+}
+```
+Here, `mainDbHost` will be set to "localhost".
+
+Self-refenced setting values can also point to settings defined in different config files. 
+
+**db.json**
+```json
+{
+    "host": "localhost",
+    "port": 3306
+}
+```
+
+**config.json**
+```json
+{
+    "mainDbHost": "$cfg:dbConfig.host"
+}
+```
+To reference other files, append `Config` to the base filename of the config file.
 
