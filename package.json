@@ -1,6 +1,6 @@
 {
   "name": "@intelcorp/config-builder",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Environment Configuration Builder",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "chai": "^4.3.6",
+    "chai": "^4.5.0",
     "mocha": "^10.3.0"
   },
   "bugs": {

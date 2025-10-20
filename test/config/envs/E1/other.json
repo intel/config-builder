@@ -1,3 +1,4 @@
 {
-	"settingOtherA": "value for settingOtherA in E1"
+	"settingOtherA": "value for settingOtherA in E1",
+	"selfReferenceB": "$cfg:otherConfig.settingOtherA"
 }

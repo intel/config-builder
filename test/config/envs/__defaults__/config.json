@@ -3,5 +3,7 @@
 	"settingB": "default_value_for_B",
 	"settingC": "default_value_for_C",
 	"settingEnv": "$env:HOME",
-	"testingenv":"$env:TEST"
+	"testingenv":"$env:TEST",
+	"testingEnvDefault":"$env:TEST_WITH_DEFAULT:123",
+	"testingEnvDefaultWithValue":"$env:HOME:456"
 }
