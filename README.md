@@ -143,14 +143,30 @@ After building the config, `serviceEndpoint` will resolve to `https://api.exampl
 You can also reference values in nested sections:
 ```json
 {
-    "dbConfig": {
+    "db": {
         "host": "localhost",
         "port": 3306
     },
-    "mainDbHost": "$cfg:dbConfig.host"
+    "mainDbHost": "$cfg:db.host"
 }
 ```
 Here, `mainDbHost` will be set to "localhost".
 
+Self-refenced setting values can also point to settings defined in different config files. 
 
+**db.json**
+```json
+{
+    "host": "localhost",
+    "port": 3306
+}
+```
+
+**config.json**
+```json
+{
+    "mainDbHost": "$cfg:dbConfig.host"
+}
+```
+To reference other files, append `Config` to the base filename of the config file.
 
