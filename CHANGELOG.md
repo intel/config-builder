@@ -1,5 +1,5 @@
 ___
-Version 2.0.1
+Version 2.1.0
 * Added providing a default value when using env variables references and the variable does not exist
 * Added support for self-referencing values. When a property value starts with "$cfg:" the remaining can
 be the dotted path to another entry in config.

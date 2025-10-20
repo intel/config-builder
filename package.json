@@ -1,6 +1,6 @@
 {
   "name": "@intelcorp/config-builder",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Environment Configuration Builder",
   "main": "index.js",
   "scripts": {
