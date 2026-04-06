@@ -16,12 +16,12 @@
     "Ivan P Hernandez <ivan.p.hernandez@intel.com>"
   ],
   "license": "MIT",
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
   "devDependencies": {
     "chai": "^4.5.0",
     "mocha": "^10.3.0"
+  },
+  "overrides": {
+    "serialize-javascript": "^7.0.5"
   },
   "bugs": {
     "url": "https://github.com/intel/config-builder/issues"
